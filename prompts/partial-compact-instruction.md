@@ -14,7 +14,7 @@ MUST preserve instead of replace:
 Call `partial_compact` with `ranges: [{ from_message_id, to_message_id, summary }]`. Each object compacts only the selected message range. Batch all message ranges into a single call. Example: `partial_compact({ranges: [{from_message_id:"msg1",to_message_id:"msg4",summary:"msg1, msg 2 did blah."},{from_message_id:"msg11",to_message_id:"msg18",summary:"Finished blah thru iterations including msg15, msg16, msg17, msg18."}]})`.
 If you do not remember message IDs, you may use `partial_compact_current_session_message_ids` to list the current visible message IDs.
 
-Tail compaction: regardless of current context size, aggressively summarize the newest unneeded messages to keep the working context lean while preserving KV cache.
+Tail compaction: regardless of current context size, aggressively summarize the newest unneeded messages to keep the working context lean while minimizing cache churn where the host preserves cache boundaries.
 
 Full-session compaction: on higher context usage, compact stale context more aggressively, starting with recent ranges and moving backward as needed.
 
