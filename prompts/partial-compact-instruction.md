@@ -1,4 +1,4 @@
-<instruction name="opencode-partial-compact">
+<instruction name="agent-partial-compact">
 Partial compaction replaces no-longer-needed messages from the agent's context window with agent-provided summaries.
 
 Strongly consider partial compaction for any stale context not very likely to be useful soon: tool output with much shorter takeaways, resolved detours, repeated investigation, obsolete edits, or anything irrelevant to the current task.
@@ -20,5 +20,5 @@ Full-session compaction: on higher context usage, compact stale context more agg
 
 Try to keep your context window under 50%.
 
-Original messages remain in the session log. If you need them later, use message search/read tools for the current session history: `session_search` and `session_read`.
+Original messages remain in the session log. If you need them later, use the host's available session history, search, or read tools; do not assume a specific tool name unless it is advertised in the current environment.
 </instruction>
